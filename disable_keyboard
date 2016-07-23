@@ -1,0 +1,19 @@
+#! /bin/bash
+
+mousepad=`xinput list-props 14 | grep 'Device Enabled'`
+length=$((${#mousepad}-1))
+keyboard=`xinput list-props 13 | grep 'Device Enabled'`
+klength=$((${#keyboard}-1))
+if [[ ${keyboard:klength:1} == 1 && ${mousepad:length:1} == 1 ]]
+	then
+		echo Disabling keyboard and touchpad
+		xinput set-prop 14 'Device Enabled' 0
+		xinput set-prop 13 'Device Enabled' 0
+fi
+
+if [[ ${keyboard:klength:1} == 0 && ${mousepad:length:1} == 0 ]]
+	then
+		echo Enabling keyboard and touchpad
+		xinput set-prop 14 'Device Enabled' 1
+		xinput set-prop 13 'Device Enabled' 1
+fi

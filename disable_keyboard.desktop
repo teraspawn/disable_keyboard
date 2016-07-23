@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Disable keyboard
+Comment=Enable or disable the keyboard and touchpad
+Exec=disable_keyboard
+Icon=ibus-keyboard
+Terminal=false
+Type=Application
+StartupNotify=true
+
